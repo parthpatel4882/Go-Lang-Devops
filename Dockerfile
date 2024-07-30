@@ -1,13 +1,15 @@
 # Start with a base image
-FROM golang:1.21 as base
+FROM golang:1.22.5 as base
 
 # Set the working directory inside the container
 WORKDIR /app
 
-COPY go.mod .
+COPY go.mod ./
 
 # Download all the dependencies
+
 RUN go mod download 
+
 # Copy the source code to the working directory
 COPY . .
 # Build the application
